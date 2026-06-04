@@ -1,0 +1,269 @@
+:root {
+  --bg: #f4f1ea;
+  --paper: #fffdfa;
+  --ink: #1e1d1a;
+  --muted: #6c6860;
+  --line: #ddd6ca;
+  --soft: #f8f5ef;
+  --accent: #35524a;
+  --mark: #fff08a;
+  --danger-soft: #fff2ee;
+  --shadow: 0 18px 48px rgba(35, 29, 20, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #000;
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", "Malgun Gothic", serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(244, 241, 234, 0.94);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(8px);
+}
+
+.topbar button {
+  min-width: 72px;
+  border: 1px solid #bdb5a9;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.topbar button:hover {
+  border-color: #8c857a;
+}
+
+.topbar button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.jump input {
+  width: 68px;
+  border: 1px solid #c8c0b3;
+  border-radius: 6px;
+  background: var(--paper);
+  padding: 7px 8px;
+  text-align: center;
+}
+
+.page-status {
+  min-width: 82px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 14px;
+}
+
+.reader-shell {
+  display: flex;
+  justify-content: center;
+  padding: 22px 16px 48px;
+}
+
+.ebook-page {
+  width: min(100%, 920px);
+  min-height: calc(100vh - 118px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: clamp(22px, 4vw, 46px);
+}
+
+.page-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-head p {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1.28;
+  font-weight: 700;
+}
+
+.page-count {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: right;
+  min-width: 128px;
+}
+
+.passage {
+  margin-top: 24px;
+  font-size: clamp(17px, 2.2vw, 19px);
+  line-height: 2.05;
+}
+
+.passage p {
+  margin: 0 0 18px;
+  text-align: justify;
+}
+
+mark {
+  background: var(--mark);
+  color: inherit;
+  padding: 0 0.12em;
+}
+
+.question-area {
+  margin-top: 30px;
+  display: grid;
+  gap: 16px;
+}
+
+.question-card {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.question-card h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.question-card p {
+  margin: 0 0 10px;
+  line-height: 1.75;
+}
+
+.choices {
+  margin: 0;
+  padding-left: 26px;
+  line-height: 1.8;
+}
+
+.choices li {
+  margin-bottom: 4px;
+}
+
+.blank-sentence {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 12px 14px;
+}
+
+details {
+  margin-top: 26px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 8px;
+}
+
+summary {
+  cursor: pointer;
+  padding: 12px 14px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.answers {
+  padding: 0 14px 14px;
+  color: #37342f;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.answers p {
+  margin: 8px 0;
+}
+
+@media (max-width: 620px) {
+  .topbar {
+    gap: 6px;
+    padding: 10px 8px;
+  }
+
+  .topbar button {
+    min-width: 54px;
+    padding: 7px 8px;
+  }
+
+  .jump span {
+    display: none;
+  }
+
+  .ebook-page {
+    padding: 22px 18px;
+  }
+
+  .page-head {
+    display: block;
+  }
+
+  .page-count {
+    margin-top: 10px;
+    text-align: left;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .topbar {
+    display: none;
+  }
+
+  .reader-shell {
+    padding: 0;
+    display: block;
+  }
+
+  .ebook-page {
+    width: auto;
+    min-height: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 18mm;
+  }
+}

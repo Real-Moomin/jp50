@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人文学日本語読解五十題</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar" aria-label="ebook controls">
+    <button type="button" id="prevPage">前へ</button>
+    <label class="jump">
+      <span>頁</span>
+      <input id="pageInput" type="number" min="1" value="1" />
+    </label>
+    <span id="pageStatus" class="page-status">1 / 50</span>
+    <button type="button" id="nextPage">次へ</button>
+  </header>
+
+  <main class="reader-shell">
+    <article id="pageView" class="ebook-page" aria-live="polite"></article>
+  </main>
+
+  <script src="data.js?v=3"></script>
+  <script src="app.js?v=3"></script>
+</body>
+</html>
